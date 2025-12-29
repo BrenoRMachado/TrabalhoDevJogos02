@@ -76,7 +76,7 @@ velocidade = 50.0
 texture_filter = 1
 scale = Vector2(5.7333326, 5.733333)
 sprite_frames = SubResource("SpriteFrames_3ulvt")
-frame_progress = 0.48915064
+frame_progress = 0.9861441
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_rkjai")
