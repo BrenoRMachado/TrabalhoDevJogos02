@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://bdo6q7dgtbdrw"]
+[gd_scene load_steps=9 format=3 uid="uid://bdo6q7dgtbdrw"]
 
+[ext_resource type="Script" uid="uid://c2boiayjo4fq5" path="res://drone_inimigo.gd" id="1_ophob"]
 [ext_resource type="Texture2D" uid="uid://bcwtlwlpbd7i1" path="res://Enemies Sprites/1-FlyRobot.png" id="1_ujgg4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tmolf"]
@@ -47,12 +48,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ophob"]
 size = Vector2(11, 15)
 
-[node name="Drone Inimigo" type="CharacterBody2D"]
+[node name="Drone Inimigo" type="Area2D"]
+script = ExtResource("1_ophob")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_akwpb")
-frame_progress = 0.6404289
+frame_progress = 0.6337028
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0.5)
