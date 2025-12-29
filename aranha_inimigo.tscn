@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://clsqdke88ydkm"]
+
+[ext_resource type="Texture2D" uid="uid://2vfa4bkussvt" path="res://Enemies Sprites/2-SpiderRobot.png" id="1_xs8xv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbgem"]
+atlas = ExtResource("1_xs8xv")
+region = Rect2(7, 8, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmlda"]
+atlas = ExtResource("1_xs8xv")
+region = Rect2(39, 8, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ectp2"]
+atlas = ExtResource("1_xs8xv")
+region = Rect2(71, 8, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oo8l8"]
+atlas = ExtResource("1_xs8xv")
+region = Rect2(103, 8, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3t04g"]
+atlas = ExtResource("1_xs8xv")
+region = Rect2(135, 8, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fl1bx"]
+atlas = ExtResource("1_xs8xv")
+region = Rect2(167, 8, 17, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3ulvt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbgem")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmlda")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ectp2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oo8l8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3t04g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fl1bx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rkjai"]
+size = Vector2(14, 14)
+
+[node name="Aranha Inimigo" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_3ulvt")
+frame_progress = 0.8039077
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rkjai")
