@@ -1,5 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://diec1tboo47di"]
+[gd_scene load_steps=21 format=3 uid="uid://diec1tboo47di"]
 
+[ext_resource type="Script" uid="uid://bfcuglt4griht" path="res://inimigo_boss.gd" id="1_qx1bd"]
 [ext_resource type="Texture2D" uid="uid://dhgsj3enue0nu" path="res://Enemies Sprites/3-Robot-Atack.png" id="1_r4ymu"]
 [ext_resource type="Texture2D" uid="uid://c861n5htayh0e" path="res://Enemies Sprites/3-Robot-Idle.png" id="2_qx1bd"]
 [ext_resource type="Texture2D" uid="uid://bjldmwvipwnh4" path="res://Enemies Sprites/3-Robot-Walk.png" id="3_c2kdd"]
@@ -73,10 +74,19 @@ animations = [{
 "texture": SubResource("AtlasTexture_vdw50")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_vdw50")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdw50")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_28de0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iv0px")
 }],
-"loop": true,
-"name": &"atacking",
+"loop": false,
+"name": &"atack",
 "speed": 5.0
 }, {
 "frames": [{
@@ -121,16 +131,25 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r4ymu"]
-size = Vector2(25, 28)
+size = Vector2(276, 231)
 
 [node name="Inimigo Boss" type="Area2D"]
+script = ExtResource("1_qx1bd")
+"distância" = 100.0
+velocidade = 50.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+scale = Vector2(9.1875, 9.187499)
 sprite_frames = SubResource("SpriteFrames_tr50t")
-animation = &"atacking"
-frame_progress = 0.26269937
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 2)
+position = Vector2(9, 32.5)
 shape = SubResource("RectangleShape2D_r4ymu")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
