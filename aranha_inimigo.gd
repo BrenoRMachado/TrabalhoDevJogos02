@@ -2,6 +2,7 @@ extends Area2D
 
 @export var distância : float
 @export var velocidade : float
+
 @onready var sprite = $AnimatedSprite2D
 
 var posicao_inicial
@@ -12,7 +13,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if distância > 0.0:
-		sprite.play("default")
+		sprite.play("walking")
 		if position.x < posicao_inicial + distância and auxiliar > 0:
 			position.x += auxiliar * velocidade * delta
 		elif position.x > posicao_inicial - distância and auxiliar < 0:
@@ -24,6 +25,8 @@ func _process(delta: float) -> void:
 				sprite.flip_h = true
 			else:
 				sprite.flip_h = false
+	else:
+		sprite.play("default")
 
 func _on_body_entered(body: CharacterBody2D) -> void:
 	pass

@@ -46,7 +46,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ophob"]
-size = Vector2(11, 15)
+size = Vector2(55, 55)
 
 [node name="Drone Inimigo" type="Area2D"]
 script = ExtResource("1_ophob")
@@ -54,9 +54,10 @@ velocidade = 50.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_akwpb")
-frame_progress = 0.69886816
+frame_progress = 0.46581003
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0.5)
+position = Vector2(2.5, 15.5)
 shape = SubResource("RectangleShape2D_ophob")

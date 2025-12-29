@@ -2,6 +2,7 @@ extends Area2D
 
 @export var distância : float
 @export var velocidade : float
+
 @onready var sprite = $AnimatedSprite2D
 
 var posicao_inicial
