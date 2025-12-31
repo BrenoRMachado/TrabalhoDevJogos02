@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://bb4o3ppgxhaql"]
+[gd_scene load_steps=2 format=3 uid="uid://bb4o3ppgxhaql"]
+
+[ext_resource type="PackedScene" uid="uid://vv7c5lua0a4c" path="res://menu_pausa.tscn" id="1_7i8gy"]
 
 [node name="FaseTeste" type="Control"]
 layout_mode = 3
@@ -22,3 +24,5 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "AQUI VAI SER O JOGO"
+
+[node name="MenuPausa" parent="." instance=ExtResource("1_7i8gy")]
