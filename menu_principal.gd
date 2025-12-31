@@ -1,12 +1,9 @@
 extends Control
 
-# Precisamos dizer para onde o botão jogar vai levar.
-# Como o jogo não existe, vamos criar uma variável para isso.
+# Variavel pra chamar a cena do jogo
 @export var cena_do_jogo: PackedScene
 
 func _ready():
-	# Vamos conectar os sinais (cliques) via código para ficar mais limpo,
-	# mas você também pode fazer pela aba "Node" na direita.
 	
 	# Quando apertar Jogar
 	$VBoxContainer/BotaoJogar.pressed.connect(entrar_no_jogo)
