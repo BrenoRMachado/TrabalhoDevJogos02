@@ -2,6 +2,7 @@ extends Area2D
 
 @export var distância : float
 @export var velocidade : float
+@export var player: CharacterBody2D
 
 @onready var sprite = $AnimatedSprite2D
 @onready var timer = $Timer
@@ -10,6 +11,8 @@ var posicao_inicial
 var auxiliar = -1
 var verificador_timer = false
 var ataque_inimigo = false
+var presenca_jogador = false
+var aux_jogador = true
 
 func _ready() -> void:
 	posicao_inicial = position.x
@@ -33,17 +36,26 @@ func _process(delta: float) -> void:
 			ataque_inimigo = true
 			verificador_timer = false
 			timer.start(3.0)
+	
+	if ataque_inimigo and presenca_jogador and aux_jogador:
+		player.tomar_dano(1)
+		aux_jogador = false
 
 func _on_timer_timeout() -> void:
 	verificador_timer = true
 	ataque_inimigo = false
+	aux_jogador = true
 	sprite.play("walking")
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if sprite.animation == "atack":
 		sprite.play("default")
 
+
 func _on_body_entered(body: Node2D) -> void:
-	print("Algo encostou")
 	if body is CharacterBody2D:
-		body.tomar_dano(1)
+		presenca_jogador = true
+
+func _on_body_exited(body: Node2D) -> void:
+	if body is CharacterBody2D:
+		presenca_jogador = false
