@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kbt4ivt0wjm6"
-path="res://.godot/imported/trees.png-ee86fd509f9d9077ccbc21e8179d0cb3.ctex"
+uid="uid://402qtqqs00n6"
+path="res://.godot/imported/1-FlyRobot.png-5462546b3af315c62ea1c8f636c0e86d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Cenarios_e_Background/Tiles/Social/trees.png"
-dest_files=["res://.godot/imported/trees.png-ee86fd509f9d9077ccbc21e8179d0cb3.ctex"]
+source_file="res://Assets/Enemys/Robots/1-FlyRobot.png"
+dest_files=["res://.godot/imported/1-FlyRobot.png-5462546b3af315c62ea1c8f636c0e86d.ctex"]
 
 [params]
 

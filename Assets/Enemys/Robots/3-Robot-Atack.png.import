@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c861n5htayh0e"
-path="res://.godot/imported/3-Robot-Idle.png-b2c519f09386ca79fd931be8f1eed53a.ctex"
+uid="uid://cm42gxvpbevx0"
+path="res://.godot/imported/3-Robot-Atack.png-27b5b56e9f40a2cead8a28c9a0ab510d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Enemies Sprites/3-Robot-Idle.png"
-dest_files=["res://.godot/imported/3-Robot-Idle.png-b2c519f09386ca79fd931be8f1eed53a.ctex"]
+source_file="res://Assets/Enemys/Robots/3-Robot-Atack.png"
+dest_files=["res://.godot/imported/3-Robot-Atack.png-27b5b56e9f40a2cead8a28c9a0ab510d.ctex"]
 
 [params]
 

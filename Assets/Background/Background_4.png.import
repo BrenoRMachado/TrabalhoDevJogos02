@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cabxc42d77412"
-path="res://.godot/imported/entrance.png-cb3a2a0673205eac2db639280405fb4f.ctex"
+uid="uid://cfb7ejsxopqvx"
+path="res://.godot/imported/Background_4.png-a593d904b54d676b6fef64b25c41f4f4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Cenarios_e_Background/Tiles/Social/entrance.png"
-dest_files=["res://.godot/imported/entrance.png-cb3a2a0673205eac2db639280405fb4f.ctex"]
+source_file="res://Assets/Background/Background_4.png"
+dest_files=["res://.godot/imported/Background_4.png-a593d904b54d676b6fef64b25c41f4f4.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cks8fp5ij3o60"
-path="res://.godot/imported/Assets.png-97ef5c1a70bda870bcb85a8d301b0e98.ctex"
+uid="uid://bxipaasje6djl"
+path="res://.godot/imported/3-Robot-Walk.png-51e120e2a7be81fb71e3a5adec79eb82.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Cenarios_e_Background/Tiles/Assets/Assets.png"
-dest_files=["res://.godot/imported/Assets.png-97ef5c1a70bda870bcb85a8d301b0e98.ctex"]
+source_file="res://Assets/Enemys/Robots/3-Robot-Walk.png"
+dest_files=["res://.godot/imported/3-Robot-Walk.png-51e120e2a7be81fb71e3a5adec79eb82.ctex"]
 
 [params]
 

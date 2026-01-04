@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2mhjuarm3lgp"
-path="res://.godot/imported/Background_1.png-8aacc2e9826367200ceff8714cc162e7.ctex"
+uid="uid://ct50wsttya287"
+path="res://.godot/imported/2-SpiderRobot.png-2f309b2597afacb4e42179597b559313.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Cenarios_e_Background/Tiles/Assets/Background_1.png"
-dest_files=["res://.godot/imported/Background_1.png-8aacc2e9826367200ceff8714cc162e7.ctex"]
+source_file="res://Assets/Enemys/Robots/2-SpiderRobot.png"
+dest_files=["res://.godot/imported/2-SpiderRobot.png-2f309b2597afacb4e42179597b559313.ctex"]
 
 [params]
 
