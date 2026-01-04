@@ -1,6 +1,7 @@
-[gd_scene load_steps=28 format=3 uid="uid://bxmkhd0iylk67"]
+[gd_scene load_steps=31 format=3 uid="uid://bxmkhd0iylk67"]
 
 [ext_resource type="Texture2D" uid="uid://cwac7j7laj46k" path="res://Player Sprites/Warrior_Blue.png" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://3ny2rmmn3yie" path="res://player.gd" id="1_onrkg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
 atlas = ExtResource("1_4flbx")
@@ -205,8 +206,36 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4flbx"]
+radius = 21.255426
+height = 61.497
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
+size = Vector2(50, 69)
+
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_onrkg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dw050")
-frame_progress = 0.20849007
+frame_progress = 0.67415386
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.0350299, 1.2033107)
+shape = SubResource("CapsuleShape2D_4flbx")
+
+[node name="AreaAtaque" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaAtaque"]
+position = Vector2(51, 6.5)
+shape = SubResource("RectangleShape2D_onrkg")
+disabled = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="area_entered" from="AreaAtaque" to="." method="_on_area_ataque_area_entered"]
