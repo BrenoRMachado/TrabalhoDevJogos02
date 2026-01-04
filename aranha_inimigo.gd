@@ -28,5 +28,7 @@ func _process(delta: float) -> void:
 	else:
 		sprite.play("default")
 
-func _on_body_entered(body: CharacterBody2D) -> void:
-	pass
+func _on_body_entered(body: Node2D) -> void:
+	print("Algo encostou")
+	if body is CharacterBody2D:
+		body.tomar_dano(1)

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cnwqnaky4qdrb"
+path="res://.godot/imported/world wanderer.ogg-07ce3af40824d6d7f40d8d7dc1b8aa3b.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/SunnyLandsMusic/world wanderer.ogg"
+dest_files=["res://.godot/imported/world wanderer.ogg-07ce3af40824d6d7f40d8d7dc1b8aa3b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

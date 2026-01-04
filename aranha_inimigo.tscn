@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://clsqdke88ydkm"]
+[gd_scene load_steps=12 format=3 uid="uid://clsqdke88ydkm"]
 
 [ext_resource type="Script" uid="uid://dylt6om1m07bb" path="res://aranha_inimigo.gd" id="1_wbgem"]
 [ext_resource type="Texture2D" uid="uid://2vfa4bkussvt" path="res://Enemies Sprites/2-SpiderRobot.png" id="1_xs8xv"]
+[ext_resource type="PackedScene" uid="uid://bxmkhd0iylk67" path="res://player.tscn" id="2_tmlda"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oo8l8"]
 atlas = ExtResource("1_xs8xv")
@@ -68,9 +69,12 @@ animations = [{
 size = Vector2(74, 86)
 
 [node name="Aranha Inimigo" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
 script = ExtResource("1_wbgem")
 "distância" = 100.0
 velocidade = 50.0
+player = ExtResource("2_tmlda")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -80,3 +84,5 @@ frame_progress = 0.9861441
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_rkjai")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

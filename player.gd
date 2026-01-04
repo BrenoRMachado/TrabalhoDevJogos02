@@ -10,6 +10,7 @@ extends CharacterBody2D
 var pode_atacar = true
 var ataque_alternado = false
 var esta_atacando = false
+var hp = 5
 
 @onready var sprite = $AnimatedSprite2D
 @onready var area_ataque_col = $AreaAtaque/CollisionShape2D
@@ -74,3 +75,7 @@ func atacar():
 	await get_tree().create_timer(tempo_recarga_ataque).timeout
 	
 	pode_atacar = true
+
+func tomar_dano(dano : int) -> void:
+	hp -= dano
+	print("Vida do personagem: ", hp)
