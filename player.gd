@@ -1,68 +1,73 @@
 extends CharacterBody2D
 
-# Variáveis de movimento
-@export var velocidade = 200.0
-@export var forca_pulo = -350.0
-var gravidade = 980
-var pode_atacar = true
+# Configurações de movimento
+@export var velocidade = 250.0
+@export var gravidade = 1000.0
+@export var forca_pulo = -450.0 # Ajustado para não ser tão alto
 
-# Referências aos nós
+# Variáveis de controle de ataque
+var pode_atacar = true
+var ataque_alternado = false
+
 @onready var sprite = $AnimatedSprite2D
 @onready var area_ataque_col = $AreaAtaque/CollisionShape2D
-@onready var camera = $Camera2D
 
 func _physics_process(delta):
 	# 1. Gravidade
 	if not is_on_floor():
 		velocity.y += gravidade * delta
 
-	# 2. Pulo
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = forca_pulo
+	# 2. Movimento Horizontal (Setas ou A/D)
+	var direcao = 0
+	if Input.is_key_pressed(KEY_D) or Input.is_key_pressed(KEY_RIGHT):
+		direcao += 1
+	if Input.is_key_pressed(KEY_A) or Input.is_key_pressed(KEY_LEFT):
+		direcao -= 1
 
-	# 3. Movimento Horizontal
-	var direcao = Input.get_axis("ui_left", "ui_right")
-	if direcao:
+	# 3. Lógica de Velocidade e Animações (Andar/Parado)
+	if direcao != 0:
 		velocity.x = direcao * velocidade
 		sprite.flip_h = (direcao < 0)
-		# Ajusta a posição da área de ataque para frente do player
-		$AreaAtaque.position.x = 20 if direcao > 0 else -20
-		if is_on_floor(): sprite.play("run")
+		# Reposiciona a hitbox da espada para frente do player
+		$AreaAtaque.position.x = 30 if direcao > 0 else -30
+		
+		if is_on_floor() and pode_atacar:
+			sprite.play("walking")
 	else:
 		velocity.x = move_toward(velocity.x, 0, velocidade)
-		if is_on_floor(): sprite.play("idle")
+		if is_on_floor() and pode_atacar:
+			sprite.play("default")
 
-	if not is_on_floor():
-		sprite.play("jump")
+	# 4. Pulo e Animação de Ar
+	if is_on_floor() and (Input.is_key_pressed(KEY_SPACE) or Input.is_key_pressed(KEY_W)):
+		velocity.y = forca_pulo
+	
+	if not is_on_floor() and pode_atacar:
+		sprite.play("jumping")
 
-	# 4. Comando de Ataque (Tecla Z ou J)
-	if Input.is_action_just_pressed("atacar") and pode_atacar:
+	# 5. Comando de Ataque (Tecla X ou Clique Esquerdo)
+	if (Input.is_key_pressed(KEY_X) or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)) and pode_atacar:
 		atacar()
 
 	move_and_slide()
 
 func atacar():
 	pode_atacar = false
-	sprite.play("attack")
-	area_ataque_col.disabled = false # Ativa a hitbox da espada
 	
-	# REQUISITO: Animação não-sprite (Tremor leve de câmera ao atacar)
-	var tween = create_tween()
-	tween.tween_property(camera, "offset", Vector2(2, 2), 0.05)
-	tween.tween_property(camera, "offset", Vector2(-2, -2), 0.05)
-	tween.tween_property(camera, "offset", Vector2(0, 0), 0.05)
+	# Alterna entre as animações hitting e hitting2
+	if ataque_alternado:
+		sprite.play("hitting2")
+	else:
+		sprite.play("hitting")
 	
-	await get_tree().create_timer(0.2).timeout
-	area_ataque_col.disabled = true # Desativa a espada
+	# Inverte para o próximo ataque
+	ataque_alternado = !ataque_alternado
 	
-	await get_tree().create_timer(0.3).timeout # Tempo de espera entre golpes
+	# Ativa a colisão da espada
+	area_ataque_col.disabled = false 
+	
+	# Tempo da animação de ataque (ajuste se necessário)
+	await get_tree().create_timer(0.4).timeout
+	
+	area_ataque_col.disabled = true
 	pode_atacar = true
-
-# Função para os inimigos te matarem
-func tomar_dano():
-	get_tree().reload_current_scene()
-
-
-func _on_area_ataque_area_entered(area: Area2D) -> void:
-	if area.has_method("receber_dano"):
-		area.receber_dano()

@@ -1,10 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bb4o3ppgxhaql"]
+[gd_scene load_steps=2 format=3 uid="uid://bb4o3ppgxhaql"]
 
 [ext_resource type="PackedScene" uid="uid://vv7c5lua0a4c" path="res://menu_pausa.tscn" id="1_7i8gy"]
-[ext_resource type="PackedScene" uid="uid://bxmkhd0iylk67" path="res://player.tscn" id="2_4oofb"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wbc3m"]
-size = Vector2(889, 20)
 
 [node name="FaseTeste" type="Control"]
 layout_mode = 3
@@ -36,12 +32,3 @@ text = "AQUI VAI SER O JOGO"
 
 [node name="MenuPausa" parent="." instance=ExtResource("1_7i8gy")]
 visible = false
-
-[node name="Player" parent="." instance=ExtResource("2_4oofb")]
-position = Vector2(574, 204)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(579, 284)
-shape = SubResource("RectangleShape2D_wbc3m")
