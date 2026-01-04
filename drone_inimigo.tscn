@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bdo6q7dgtbdrw"]
 
 [ext_resource type="Script" uid="uid://c2boiayjo4fq5" path="res://drone_inimigo.gd" id="1_ophob"]
-[ext_resource type="Texture2D" uid="uid://bcwtlwlpbd7i1" path="res://Enemies Sprites/1-FlyRobot.png" id="1_ujgg4"]
+[ext_resource type="Texture2D" path="res://Enemies Sprites/1-FlyRobot.png" id="1_ujgg4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tmolf"]
 atlas = ExtResource("1_ujgg4")
