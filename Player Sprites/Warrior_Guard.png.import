@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwac7j7laj46k"
-path="res://.godot/imported/Warrior_Blue.png-79df1ea5ba4acf08402f08f3b5b1c238.ctex"
+uid="uid://blws2bid1dvy6"
+path="res://.godot/imported/Warrior_Guard.png-cde34efcf751f186f9417259f1bded23.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player Sprites/Warrior_Blue.png"
-dest_files=["res://.godot/imported/Warrior_Blue.png-79df1ea5ba4acf08402f08f3b5b1c238.ctex"]
+source_file="res://Player Sprites/Warrior_Guard.png"
+dest_files=["res://.godot/imported/Warrior_Guard.png-cde34efcf751f186f9417259f1bded23.ctex"]
 
 [params]
 
