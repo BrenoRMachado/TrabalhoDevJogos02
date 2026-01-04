@@ -1,4 +1,4 @@
-[gd_scene load_steps=109 format=3 uid="uid://bxmkhd0iylk67"]
+[gd_scene load_steps=113 format=3 uid="uid://bxmkhd0iylk67"]
 
 [ext_resource type="Script" uid="uid://3ny2rmmn3yie" path="res://player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://hjgmisobq7m1" path="res://Assets/Knights/Black/Warrior_Attack1.png" id="2_sweqy"]
@@ -81,6 +81,10 @@ region = Rect2(1152, 0, 192, 192)
 [sub_resource type="AtlasTexture" id="AtlasTexture_dx0e4"]
 atlas = ExtResource("4_1jxqw")
 region = Rect2(1344, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hmo1"]
+atlas = ExtResource("4_1jxqw")
+region = Rect2(0, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jm5j8"]
 atlas = ExtResource("5_dw050")
@@ -170,6 +174,10 @@ region = Rect2(1152, 0, 192, 192)
 atlas = ExtResource("8_pylmc")
 region = Rect2(1344, 0, 192, 192)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_uygay"]
+atlas = ExtResource("8_pylmc")
+region = Rect2(0, 0, 192, 192)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_8gr2b"]
 atlas = ExtResource("9_pbfsw")
 region = Rect2(0, 0, 192, 192)
@@ -258,6 +266,10 @@ region = Rect2(1152, 0, 192, 192)
 atlas = ExtResource("12_7lmhl")
 region = Rect2(1344, 0, 192, 192)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_rpay4"]
+atlas = ExtResource("12_7lmhl")
+region = Rect2(0, 0, 192, 192)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_mgmjd"]
 atlas = ExtResource("13_dx0e4")
 region = Rect2(0, 0, 192, 192)
@@ -345,6 +357,10 @@ region = Rect2(1152, 0, 192, 192)
 [sub_resource type="AtlasTexture" id="AtlasTexture_sc53x"]
 atlas = ExtResource("16_qtqh7")
 region = Rect2(1344, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfa3h"]
+atlas = ExtResource("16_qtqh7")
+region = Rect2(0, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ro7of"]
 atlas = ExtResource("17_2wuci")
@@ -437,6 +453,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_2hmo1")
+}],
+"loop": true,
+"name": &"black_jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_jm5j8")
 }, {
 "duration": 1.0,
@@ -520,6 +544,14 @@ animations = [{
 "loop": true,
 "name": &"blue_idle",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uygay")
+}],
+"loop": true,
+"name": &"blue_jump",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -609,6 +641,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_rpay4")
+}],
+"loop": true,
+"name": &"purple_jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_mgmjd")
 }, {
 "duration": 1.0,
@@ -695,6 +735,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_xfa3h")
+}],
+"loop": true,
+"name": &"red_jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ro7of")
 }, {
 "duration": 1.0,
@@ -728,18 +776,17 @@ size = Vector2(50, 69)
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_onrkg")
+cor_atual = "red"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_634y6")
-animation = &"red_run"
+animation = &"black_idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 scale = Vector2(1.0350299, 1.2033107)
 shape = SubResource("CapsuleShape2D_4flbx")
 
 [node name="AreaAtaque" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 4
 monitoring = false

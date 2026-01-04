@@ -1,0 +1,85 @@
+extends CharacterBody2D
+
+# --- CONFIGURAÇÕES ---
+@export var velocidade := 250.0
+@export var forca_pulo := -450.0
+@export var gravidade := 1000.0
+@export_enum("black", "purple", "red", "blue") var cor_atual: String = "blue"
+
+# --- ESTADOS ---
+var pode_atacar := true
+var esta_atacando := false
+var combo_ataque := 1
+var hp = 5
+
+@onready var sprite = $AnimatedSprite2D
+@onready var area_ataque_col = $AreaAtaque/CollisionShape2D
+
+func _physics_process(delta: float) -> void:
+	# 1. Gravidade
+	if not is_on_floor():
+		velocity.y += gravidade * delta
+
+	# 2. Pulo (Usando o seu nome "pular")
+	# Ele verifica de forma independente do movimento horizontal
+	if is_on_floor() and Input.is_action_just_pressed("pular"):
+		velocity.y = forca_pulo
+
+	# 3. Movimento Horizontal (Usando "esquerda" e "direita")
+	var direcao = Input.get_axis("esquerda", "direita")
+	
+	if not esta_atacando:
+		if direcao != 0:
+			velocity.x = direcao * velocidade
+			sprite.flip_h = (direcao < 0)
+		else:
+			velocity.x = move_toward(velocity.x, 0, velocidade)
+	else:
+		# Se atacar no chão, para de deslizar. No ar, mantém o impulso.
+		if is_on_floor():
+			velocity.x = move_toward(velocity.x, 0, velocidade)
+
+	# 4. Ataque (Usando o seu nome "atacar")
+	if Input.is_action_just_pressed("atacar") and pode_atacar:
+		atacar()
+
+	move_and_slide()
+	atualizar_visual(direcao)
+
+func atualizar_visual(direcao: float):
+	if esta_atacando:
+		return
+
+	var anim_desejada : String
+
+	if not is_on_floor():
+		anim_desejada = cor_atual + "_jump"
+	elif direcao != 0:
+		anim_desejada = cor_atual + "_run"
+	else:
+		anim_desejada = cor_atual + "_idle"
+
+	# Só dá play se a animação mudar, para não ficar resetando o frame 0
+	if sprite.animation != anim_desejada:
+		sprite.play(anim_desejada)
+
+func atacar():
+	pode_atacar = false
+	esta_atacando = true
+	
+	sprite.play(cor_atual + "_attack" + str(combo_ataque))
+	area_ataque_col.disabled = false
+	
+	await sprite.animation_finished
+	
+	area_ataque_col.disabled = true
+	esta_atacando = false
+	combo_ataque = 2 if combo_ataque == 1 else 1
+	
+	# Cooldown rápido para o próximo clique
+	await get_tree().create_timer(0.1).timeout
+	pode_atacar = true
+
+func tomar_dano(dano : int) -> void:
+	hp -= dano
+	print("Vida do personagem: ", hp)

@@ -31,8 +31,9 @@ texture = ExtResource("1_wa8cm")
 [node name="Player" parent="." instance=ExtResource("1_3j8to")]
 position = Vector2(576, 325)
 
-[node name="Inimigo Boss" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_b68p4")]
+[node name="Inimigo Boss" parent="." instance=ExtResource("3_b68p4")]
 position = Vector2(877, 432)
-"distância" = 0.0
-velocidade = 0.0
-player = NodePath("../Player")
+velocidade = null
+forca_pulo = null
+gravidade = null
+cor_atual = null
