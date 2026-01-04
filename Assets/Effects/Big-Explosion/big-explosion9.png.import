@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b7apijvgjm01"
-path="res://.godot/imported/big-explosion9.png-bd96e07a064a78ab8f710134dc24efe6.ctex"
+path="res://.godot/imported/big-explosion9.png-3d1caaffcf3f78ca212171ab6f535608.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SuperGrottoEScape/Big-Explosion/big-explosion9.png"
-dest_files=["res://.godot/imported/big-explosion9.png-bd96e07a064a78ab8f710134dc24efe6.ctex"]
+source_file="res://Assets/Effects/Big-Explosion/big-explosion9.png"
+dest_files=["res://.godot/imported/big-explosion9.png-3d1caaffcf3f78ca212171ab6f535608.ctex"]
 
 [params]
 

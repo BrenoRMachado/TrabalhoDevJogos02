@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bj0wislvs7oov"
-path="res://.godot/imported/fireball1.png-95236d83906a4aeb2f204a33c25647d8.ctex"
+uid="uid://cts0dquhyemj3"
+path="res://.godot/imported/03.png-5d0890194d817ebd3bba920565721774.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Effects/EnemyBullet/fireball1.png"
-dest_files=["res://.godot/imported/fireball1.png-95236d83906a4aeb2f204a33c25647d8.ctex"]
+source_file="res://Assets/TileSet/03.png"
+dest_files=["res://.godot/imported/03.png-5d0890194d817ebd3bba920565721774.ctex"]
 
 [params]
 
