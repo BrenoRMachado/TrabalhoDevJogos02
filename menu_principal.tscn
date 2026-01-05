@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://blfod7fgkrq41"]
+[gd_scene load_steps=7 format=3 uid="uid://blfod7fgkrq41"]
 
 [ext_resource type="Script" uid="uid://dycwf4uvup1x4" path="res://menu_principal.gd" id="1_bj1uy"]
-[ext_resource type="PackedScene" uid="uid://bb4o3ppgxhaql" path="res://fase_teste.tscn" id="2_gmcsc"]
+[ext_resource type="PackedScene" uid="uid://0aqqcp53onyf" path="res://tela_selecao.tscn" id="2_fa1tu"]
+[ext_resource type="PackedScene" uid="uid://dqc2rpse6wm8w" path="res://tela_como_jogar.tscn" id="3_ns3he"]
 [ext_resource type="Texture2D" uid="uid://bmxh2s6f7s3gk" path="res://Assets/Background/Assets.png" id="3_ul6ys"]
+[ext_resource type="PackedScene" uid="uid://bqc258ysqreor" path="res://tela_creditos.tscn" id="4_fa1tu"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ul6ys"]
 texture = ExtResource("3_ul6ys")
@@ -18,7 +20,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bj1uy")
-cena_do_jogo = ExtResource("2_gmcsc")
+cena_do_jogo = ExtResource("2_fa1tu")
+cena_como_jogar = ExtResource("3_ns3he")
+cena_creditos = ExtResource("4_fa1tu")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -33,9 +37,9 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_ul6ys")
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.21744792
-anchor_top = -0.050925925
+anchor_top = -0.14351852
 anchor_right = 0.78255206
-anchor_bottom = 0.10339506
+anchor_bottom = 0.010802469
 offset_left = -65.0
 offset_top = 171.0
 offset_right = 65.0
@@ -50,9 +54,9 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.587963
+anchor_top = 0.51543206
 anchor_right = 0.5
-anchor_bottom = 0.60648155
+anchor_bottom = 0.72530866
 offset_left = -112.5
 offset_top = -50.0
 offset_right = 112.5
@@ -66,6 +70,16 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "JOGAR"
+
+[node name="BotaoComoJogar" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "COMO JOGAR"
+
+[node name="BotaoCreditos" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "CRÉDITOS"
 
 [node name="BotaoSair" type="Button" parent="VBoxContainer"]
 layout_mode = 2
