@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://vv7c5lua0a4c"]
+[gd_scene load_steps=3 format=3 uid="uid://vv7c5lua0a4c"]
 
 [ext_resource type="Script" uid="uid://bd4lw6ricn31x" path="res://menu_pausa.gd" id="1_jd2x8"]
+[ext_resource type="AudioStream" uid="uid://b1ishx6jlywoh" path="res://Assets/Sounds/touch.wav" id="2_3ml7n"]
 
 [node name="MenuPausa" type="CanvasLayer"]
 process_mode = 3
@@ -49,3 +50,6 @@ text = "Voltar ao Menu"
 [node name="BotaoSair" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
 text = "Sair do Jogo"
+
+[node name="AudioTouch" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_3ml7n")

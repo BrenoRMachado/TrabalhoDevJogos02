@@ -1,4 +1,4 @@
-[gd_scene load_steps=113 format=3 uid="uid://bxmkhd0iylk67"]
+[gd_scene load_steps=116 format=3 uid="uid://bxmkhd0iylk67"]
 
 [ext_resource type="Script" uid="uid://3ny2rmmn3yie" path="res://player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://hjgmisobq7m1" path="res://Assets/Knights/Black/Warrior_Attack1.png" id="2_sweqy"]
@@ -17,6 +17,9 @@
 [ext_resource type="Texture2D" uid="uid://d233qtqhy0fhk" path="res://Assets/Knights/Red/Warrior_Attack2.png" id="15_7hik5"]
 [ext_resource type="Texture2D" uid="uid://bxnjg4xig7fmr" path="res://Assets/Knights/Red/Warrior_Idle.png" id="16_qtqh7"]
 [ext_resource type="Texture2D" uid="uid://b05cuksaq72ql" path="res://Assets/Knights/Red/Warrior_Run.png" id="17_2wuci"]
+[ext_resource type="AudioStream" uid="uid://blvompv1lwp5q" path="res://Assets/Sounds/jump.wav" id="18_q13i1"]
+[ext_resource type="AudioStream" uid="uid://6hc30owrglor" path="res://Assets/Sounds/sword.mp3" id="19_pylmc"]
+[ext_resource type="AudioStream" uid="uid://c208r4udjp4kv" path="res://Assets/Sounds/hurt.mp3" id="20_pbfsw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b26j0"]
 atlas = ExtResource("2_sweqy")
@@ -765,12 +768,11 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4flbx"]
-radius = 21.255426
-height = 61.497
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_op7ga"]
+size = Vector2(32.849293, 39.058907)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
-size = Vector2(50, 69)
+size = Vector2(50, 50)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -779,12 +781,14 @@ script = ExtResource("1_onrkg")
 cor_atual = "red"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5625, 0.5625)
 sprite_frames = SubResource("SpriteFrames_634y6")
 animation = &"black_idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -3.5)
 scale = Vector2(1.0350299, 1.2033107)
-shape = SubResource("CapsuleShape2D_4flbx")
+shape = SubResource("RectangleShape2D_op7ga")
 
 [node name="AreaAtaque" type="Area2D" parent="."]
 collision_layer = 0
@@ -792,9 +796,20 @@ collision_mask = 4
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaAtaque"]
+position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_onrkg")
 disabled = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="JumpAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_q13i1")
+
+[node name="SwordAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("19_pylmc")
+
+[node name="HurtAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("20_pbfsw")
+volume_db = 3.0
 
 [connection signal="area_entered" from="AreaAtaque" to="." method="_on_area_ataque_area_entered"]

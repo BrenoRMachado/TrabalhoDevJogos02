@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://bwsvgrvs4gosh"]
+
+[ext_resource type="PackedScene" uid="uid://d1hxkrbtva64j" path="res://cenario.tscn" id="1_lquwl"]
+[ext_resource type="PackedScene" uid="uid://diec1tboo47di" path="res://inimigo_boss.tscn" id="2_7mycd"]
+[ext_resource type="PackedScene" uid="uid://bdo6q7dgtbdrw" path="res://drone_inimigo.tscn" id="3_272bh"]
+[ext_resource type="PackedScene" uid="uid://clsqdke88ydkm" path="res://aranha_inimigo.tscn" id="4_5vw27"]
+[ext_resource type="PackedScene" uid="uid://bxmkhd0iylk67" path="res://player.tscn" id="5_kek77"]
+[ext_resource type="PackedScene" uid="uid://bv6oh554qgyer" path="res://hud.tscn" id="6_7mycd"]
+
+[node name="Node" type="Node"]
+
+[node name="Cenario" parent="." instance=ExtResource("1_lquwl")]
+
+[node name="Inimigo Boss" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_7mycd")]
+position = Vector2(4130, 558)
+player = NodePath("../Player")
+
+[node name="Drone Inimigo" parent="." instance=ExtResource("3_272bh")]
+position = Vector2(629, 506)
+
+[node name="Aranha Inimigo" parent="." instance=ExtResource("4_5vw27")]
+position = Vector2(596, 573)
+
+[node name="Player" parent="." instance=ExtResource("5_kek77")]
+position = Vector2(173, 570)
+
+[node name="HUD" parent="Player" instance=ExtResource("6_7mycd")]
