@@ -64,8 +64,24 @@ offset_top = -180.5
 offset_right = 467.5
 offset_bottom = 180.5
 grow_vertical = 2
-theme_override_font_sizes/font_size = 30
-text = "Sobre o Grupo"
+theme_override_font_sizes/font_size = 15
+text = "Knights VS Robots
+
+PROJETO DESENVOLVIDO POR:
+BRENO REIS MACHADO
+FELIPE VASCONCELLOS STREHLE
+PEDRO MATOS CRAWFORD
+LUCAS FRANÇA NEVES
+
+DISCIPLINA:
+DCC143 - Desenvolvimento de Jogos
+Universidade Federal de Juiz de Fora (UFJF)
+
+PROFESSOR:
+MARCELO CANIATO RENHE
+
+FEITO COM:
+Godot Engine"
 horizontal_alignment = 1
 
 [node name="Assets" type="Label" parent="."]
