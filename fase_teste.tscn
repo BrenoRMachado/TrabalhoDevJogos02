@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bb4o3ppgxhaql"]
+[gd_scene load_steps=10 format=3 uid="uid://bb4o3ppgxhaql"]
 
 [ext_resource type="PackedScene" uid="uid://vv7c5lua0a4c" path="res://menu_pausa.tscn" id="1_7i8gy"]
 [ext_resource type="Script" uid="uid://bjducv5p8mn0f" path="res://fase_teste.gd" id="1_wbc3m"]
@@ -6,9 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://dmcoddvwxo4vi" path="res://tela_game_over.tscn" id="2_sc1l3"]
 [ext_resource type="PackedScene" uid="uid://bxmkhd0iylk67" path="res://player.tscn" id="2_vnsrh"]
 [ext_resource type="PackedScene" uid="uid://bv6oh554qgyer" path="res://hud.tscn" id="3_vnsrh"]
+[ext_resource type="Script" uid="uid://cuiy1hklhcng8" path="res://zona_vitoria.gd" id="7_ovwvu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l4k4a"]
 size = Vector2(435, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gacsr"]
+size = Vector2(51, 38)
 
 [node name="FaseTeste" type="Node2D"]
 script = ExtResource("1_wbc3m")
@@ -53,3 +57,20 @@ offset_top = 178.0
 offset_right = 721.0
 offset_bottom = 218.0
 color = Color(0, 0, 0, 1)
+
+[node name="ZonaVitoria" type="Area2D" parent="."]
+collision_mask = 3
+script = ExtResource("7_ovwvu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZonaVitoria"]
+position = Vector2(743.5, 197)
+shape = SubResource("RectangleShape2D_gacsr")
+
+[node name="ColorRect" type="ColorRect" parent="ZonaVitoria"]
+offset_left = 718.0
+offset_top = 178.0
+offset_right = 769.0
+offset_bottom = 216.0
+color = Color(0.600444, 0.5985208, 3.85046e-07, 1)
+
+[connection signal="body_entered" from="ZonaVitoria" to="." method="_on_zona_vitoria_body_entered"]

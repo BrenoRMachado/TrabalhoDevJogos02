@@ -45,3 +45,25 @@ func chamar_game_over():
 		get_tree().change_scene_to_packed(tela_game_over)
 	else:
 		print("ERRO: Você esqueceu de colocar a TelaGameOver no Inspector da Fase!")
+
+
+# --- Adicione isso no final do seu script fase_teste.gd ---
+
+func _on_zona_vitoria_body_entered(body):
+	# O aviso amarelo reclamava que a gente não usava a variável "body".
+	# Agora vamos usar!
+	
+	print("Algo entrou na Zona de Vitória: ", body.name)
+	
+	# Verifica se foi o Player
+	if body.name == "Player" or body is CharacterBody2D:
+		print("VITÓRIA CONFIRMADA!")
+		chamar_vitoria()
+
+func chamar_vitoria():
+	# Espera um pouquinho
+	await get_tree().create_timer(0.5).timeout
+	
+	# Troca para a cena de vitória (que criamos antes)
+	# Se você não criou a variável export lá em cima, use o load direto:
+	get_tree().change_scene_to_file("res://tela_vitoria.tscn")
