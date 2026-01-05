@@ -1,17 +1,24 @@
 extends Node2D
 
 func _ready():
-	# Tenta achar o personagem pelo nome. 
-	# Se na sua lista ele se chama "Jogador", mude aqui dentro dos parênteses!
+	# 1. Acha os nós na cena
 	var player = $Player
+	var hud = $HUD
 	
 	if player:
-		# Pega a cor que veio da tela de seleção
-		var cor = Global.cor_escolhida
-		print("Aplicando cor: ", cor)
+		# Pega o texto do Global (ex: "red")
+		var cor = Global.cor_escolhida 
 		
-		# Aplica no personagem
-		player.cor_atual = cor
+		# Injeta no personagem
+		player.cor_atual = cor 
+		
+		# FORÇA ele a atualizar a animação agora
 		player.atualizar_visual(0)
+		
+		print("Personagem pintado de: ", cor)
+		
+		# --- PARTE DO HUD (Conectando a vida) ---
+		if hud:
+			hud.player_ref = player
 	else:
-		print("ERRO: Esqueci de colocar o boneco na cena ou o nome está errado!")
+		print("ERRO: Não achei o CharacterBody2D na cena!")
