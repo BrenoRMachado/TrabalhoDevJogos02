@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bb4o3ppgxhaql"]
+[gd_scene load_steps=8 format=3 uid="uid://bb4o3ppgxhaql"]
 
 [ext_resource type="PackedScene" uid="uid://vv7c5lua0a4c" path="res://menu_pausa.tscn" id="1_7i8gy"]
 [ext_resource type="Script" uid="uid://bjducv5p8mn0f" path="res://fase_teste.gd" id="1_wbc3m"]
 [ext_resource type="PackedScene" uid="uid://clsqdke88ydkm" path="res://aranha_inimigo.tscn" id="2_l4k4a"]
+[ext_resource type="PackedScene" uid="uid://dmcoddvwxo4vi" path="res://tela_game_over.tscn" id="2_sc1l3"]
 [ext_resource type="PackedScene" uid="uid://bxmkhd0iylk67" path="res://player.tscn" id="2_vnsrh"]
 [ext_resource type="PackedScene" uid="uid://bv6oh554qgyer" path="res://hud.tscn" id="3_vnsrh"]
 
@@ -11,6 +12,7 @@ size = Vector2(435, 38)
 
 [node name="FaseTeste" type="Node2D"]
 script = ExtResource("1_wbc3m")
+tela_game_over = ExtResource("2_sc1l3")
 
 [node name="Aranha Inimigo" parent="." instance=ExtResource("2_l4k4a")]
 position = Vector2(420, 180)
