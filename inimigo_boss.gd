@@ -6,10 +6,12 @@ extends Area2D
 
 @onready var sprite = $AnimatedSprite2D
 @onready var timer = $Timer
+@onready var audio_dano = $AudioStreamPlayer2D
+@onready var audio_morte = $AudioMorte
 
 var posicao_inicial
 var auxiliar = -1
-var hp = 5
+var hp = 15
 
 var verificador_timer = false
 var ataque_inimigo = false
@@ -45,8 +47,11 @@ func _process(delta: float) -> void:
 			ataque_inimigo = false
 	
 	if ataque_inimigo and presenca_jogador and aux_jogador:
-		player.tomar_dano(1)
+		player.tomar_dano(2)
 		aux_jogador = false
+	
+	if hp <= 0:
+		morre()
 
 func _on_timer_timeout() -> void:
 	verificador_timer = true
@@ -67,5 +72,10 @@ func _on_body_exited(body: Node2D) -> void:
 		presenca_jogador = false
 
 func aplica_dano(dano : int) -> void:
+	audio_dano.play()
 	hp -= dano
 	print ("Tomei dano! Vida atual: ", hp)
+
+func morre() -> void:
+	audio_morte.play()
+	queue_free()

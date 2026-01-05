@@ -28,9 +28,9 @@ position = Vector2(579.5, 614)
 scale = Vector2(9.1171875, 0.5)
 texture = ExtResource("1_wa8cm")
 
-[node name="Player" parent="." instance=ExtResource("1_3j8to")]
-position = Vector2(576, 325)
-
 [node name="Inimigo Boss" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_b68p4")]
 position = Vector2(848, 485)
 player = NodePath("../Player")
+
+[node name="Player" parent="." instance=ExtResource("1_3j8to")]
+position = Vector2(576, 325)
