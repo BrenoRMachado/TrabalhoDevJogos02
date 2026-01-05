@@ -1,21 +1,19 @@
 extends CanvasLayer
 
-# Variável para Voltar ao Menu
 @export var cena_menu_principal: String = "res://menu_principal.tscn"
 
+@onready var audio_touch: AudioStreamPlayer2D = $AudioTouch
+
+
 func _ready():
-	# O menu começa invisível
 	visible = false 
-	
-	# Conecta os botões
+
 	$Control/VBoxContainer/BotaoContinuar.pressed.connect(despausar)
 	$Control/VBoxContainer/BotaoMenu.pressed.connect(voltar_menu)
 	$Control/VBoxContainer/BotaoSair.pressed.connect(sair)
 
 func _unhandled_input(event):
-	# Se apertar ESC
 	if event.is_action_pressed("ui_cancel"):
-		# Se já estiver visível, despausa. Se não, pausa.
 		if visible:
 			despausar()
 		else:
@@ -27,12 +25,18 @@ func pausar():
 
 func despausar():
 	visible = false
+	audio_touch.play()
+	await audio_touch.finished
 	get_tree().paused = false # DESCONGELA O JOGO
 
 func voltar_menu():
 	# Descongela antes de trocar a cena
 	get_tree().paused = false 
+	audio_touch.play()
+	await audio_touch.finished
 	get_tree().change_scene_to_file(cena_menu_principal)
 
 func sair():
+	audio_touch.play()
+	await audio_touch.finished
 	get_tree().quit()

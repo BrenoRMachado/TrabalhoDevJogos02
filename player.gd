@@ -14,6 +14,9 @@ var hp = 5
 
 @onready var sprite = $AnimatedSprite2D
 @onready var area_ataque_col = $AreaAtaque/CollisionShape2D
+@onready var jump_audio : AudioStreamPlayer2D = $JumpAudio
+@onready var sword_audio: AudioStreamPlayer2D = $SwordAudio
+@onready var hurt_audio: AudioStreamPlayer2D = $HurtAudio
 
 func _physics_process(delta: float) -> void:
 	# 1. Gravidade
@@ -24,6 +27,7 @@ func _physics_process(delta: float) -> void:
 	# Ele verifica de forma independente do movimento horizontal
 	if is_on_floor() and Input.is_action_just_pressed("pular"):
 		velocity.y = forca_pulo
+		jump_audio.play()
 
 	# 3. Movimento Horizontal (Usando "esquerda" e "direita")
 	var direcao = Input.get_axis("esquerda", "direita")
@@ -38,10 +42,12 @@ func _physics_process(delta: float) -> void:
 		# Se atacar no chão, para de deslizar. No ar, mantém o impulso.
 		if is_on_floor():
 			velocity.x = move_toward(velocity.x, 0, velocidade)
+		
 
 	# 4. Ataque (Usando o seu nome "atacar")
 	if Input.is_action_just_pressed("atacar") and pode_atacar:
 		atacar()
+		sword_audio.play()
 
 	move_and_slide()
 	atualizar_visual(direcao)
@@ -82,4 +88,5 @@ func atacar():
 
 func tomar_dano(dano : int) -> void:
 	hp -= dano
+	hurt_audio.play()
 	print("Vida do personagem: ", hp)
