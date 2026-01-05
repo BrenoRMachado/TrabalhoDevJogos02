@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://bwsvgrvs4gosh"]
+[gd_scene load_steps=9 format=3 uid="uid://bwsvgrvs4gosh"]
 
+[ext_resource type="Script" uid="uid://c8xt81vtwn8jo" path="res://main.gd" id="1_5vw27"]
 [ext_resource type="PackedScene" uid="uid://d1hxkrbtva64j" path="res://cenario.tscn" id="1_lquwl"]
 [ext_resource type="PackedScene" uid="uid://diec1tboo47di" path="res://inimigo_boss.tscn" id="2_7mycd"]
 [ext_resource type="PackedScene" uid="uid://bdo6q7dgtbdrw" path="res://drone_inimigo.tscn" id="3_272bh"]
@@ -9,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://vv7c5lua0a4c" path="res://menu_pausa.tscn" id="7_272bh"]
 
 [node name="Node" type="Node"]
+script = ExtResource("1_5vw27")
 
 [node name="Cenario" parent="." instance=ExtResource("1_lquwl")]
 
