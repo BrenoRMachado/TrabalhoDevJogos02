@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 Global="*res://Global.gd"
 
+[display]
+
+mouse_cursor/custom_image="uid://brfbygf68bpkr"
+mouse_cursor/custom_image_hotspot=Vector2(20, 15)
+
 [input]
 
 atacar={
