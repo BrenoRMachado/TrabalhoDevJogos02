@@ -73,21 +73,22 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkjai"]
-size = Vector2(74, 86)
+size = Vector2(38, 41)
 
 [node name="Aranha Inimigo" type="Area2D"]
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_wbgem")
-"distância" = 100.0
+"distância" = 300.0
 velocidade = 50.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(5.7333326, 5.733333)
+scale = Vector2(2.75, 2.7500002)
 sprite_frames = SubResource("SpriteFrames_3ulvt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_rkjai")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
