@@ -772,7 +772,7 @@ animations = [{
 size = Vector2(32.849293, 39.058907)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
-size = Vector2(36, 47)
+size = Vector2(50, 50)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -793,9 +793,10 @@ shape = SubResource("RectangleShape2D_op7ga")
 [node name="AreaAtaque" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 4
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaAtaque"]
-position = Vector2(18, -3.5)
+position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_onrkg")
 disabled = true
 

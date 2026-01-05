@@ -12,7 +12,7 @@
 [node name="Cenario" parent="." instance=ExtResource("1_lquwl")]
 
 [node name="Inimigo Boss" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_7mycd")]
-position = Vector2(4130, 558)
+position = Vector2(4219, 558)
 player = NodePath("../Player")
 
 [node name="Drone Inimigo" parent="." instance=ExtResource("3_272bh")]
