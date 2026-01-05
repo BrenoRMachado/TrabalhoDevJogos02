@@ -12,7 +12,7 @@ func _ready():
 func _on_tentar_novamente_pressed():
 	# Trocamos direto pelo nome do arquivo.
 	audio_touch.play()
-	get_tree().change_scene_to_file("res://fase_teste.tscn")
+	get_tree().change_scene_to_file("res://main.tscn")
 
 func _on_menu_pressed():
 	audio_touch.play()

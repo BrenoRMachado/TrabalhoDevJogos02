@@ -4,6 +4,7 @@ extends Area2D
 @export var velocidade : float
 
 @onready var sprite = $AnimatedSprite2D
+@onready var audio_dano = $AudioStreamPlayer2D
 
 var posicao_inicial
 var auxiliar = 1
@@ -27,3 +28,8 @@ func _on_body_entered(body: Node2D) -> void:
 	print("Algo encostou")
 	if body is CharacterBody2D:
 		body.tomar_dano(1)
+
+func aplica_dano(dano : int) -> void:
+	audio_dano.play()
+	await audio_dano.finished
+	queue_free()

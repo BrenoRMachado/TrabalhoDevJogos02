@@ -1,9 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://diec1tboo47di"]
+[gd_scene load_steps=23 format=3 uid="uid://diec1tboo47di"]
 
 [ext_resource type="Script" uid="uid://bfcuglt4griht" path="res://inimigo_boss.gd" id="1_qx1bd"]
 [ext_resource type="Texture2D" uid="uid://cm42gxvpbevx0" path="res://Assets/Enemys/Robots/3-Robot-Atack.png" id="2_qx1bd"]
 [ext_resource type="Texture2D" uid="uid://bmakw40afdt7q" path="res://Assets/Enemys/Robots/3-Robot-Idle.png" id="3_c2kdd"]
 [ext_resource type="Texture2D" uid="uid://bxipaasje6djl" path="res://Assets/Enemys/Robots/3-Robot-Walk.png" id="4_iv0px"]
+[ext_resource type="AudioStream" uid="uid://bgwbodakuajol" path="res://Assets/Sounds/New Sounds/Hit1.wav" id="5_c2kdd"]
+[ext_resource type="AudioStream" uid="uid://cdoivvbfi88px" path="res://Assets/Sounds/New Sounds/Boom8.wav" id="6_iv0px"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0auxs"]
 atlas = ExtResource("2_qx1bd")
@@ -131,13 +133,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r4ymu"]
-size = Vector2(192, 157)
+size = Vector2(180, 157)
 
 [node name="Inimigo Boss" type="Area2D"]
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_qx1bd")
-"distância" = 100.0
+"distância" = 150.0
 velocidade = 50.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -146,15 +148,21 @@ scale = Vector2(6, 5.9999986)
 sprite_frames = SubResource("SpriteFrames_tr50t")
 animation = &"atack"
 autoplay = "default"
-frame = 6
-frame_progress = 1.0
+frame = 2
+frame_progress = 0.15476137
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 17.5)
+position = Vector2(6, 17.5)
 shape = SubResource("RectangleShape2D_r4ymu")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_c2kdd")
+
+[node name="AudioMorte" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_iv0px")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bdo6q7dgtbdrw"]
+[gd_scene load_steps=11 format=3 uid="uid://bdo6q7dgtbdrw"]
 
 [ext_resource type="Script" uid="uid://c2boiayjo4fq5" path="res://drone_inimigo.gd" id="1_ophob"]
 [ext_resource type="Texture2D" uid="uid://402qtqqs00n6" path="res://Assets/Enemys/Robots/1-FlyRobot.png" id="2_ophob"]
+[ext_resource type="AudioStream" uid="uid://0twtqs65u2em" path="res://Assets/Sounds/New Sounds/Boom.wav" id="3_tmolf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tmolf"]
 atlas = ExtResource("2_ophob")
@@ -70,5 +71,8 @@ frame_progress = 0.5203662
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -13.5)
 shape = SubResource("RectangleShape2D_ophob")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_tmolf")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
