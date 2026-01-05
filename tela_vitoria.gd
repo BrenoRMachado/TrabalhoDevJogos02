@@ -7,7 +7,7 @@ func _ready():
 
 func _on_jogar_novamente_pressed():
 	# Reinicia a fase
-	get_tree().change_scene_to_file("res://fase_teste.tscn")
+	get_tree().change_scene_to_file("res://main.tscn")
 
 func _on_menu_pressed():
 	# Volta pro menu

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bmxh2s6f7s3gk" path="res://Assets/Background/Assets.png" id="1_kch0r"]
 [ext_resource type="Script" uid="uid://dvu7bv1uvjfxb" path="res://tela_selecao.gd" id="1_tw8xo"]
-[ext_resource type="PackedScene" uid="uid://bb4o3ppgxhaql" path="res://fase_teste.tscn" id="2_du761"]
+[ext_resource type="PackedScene" uid="uid://bwsvgrvs4gosh" path="res://main.tscn" id="2_tw8xo"]
 [ext_resource type="Texture2D" uid="uid://bcfhnqd2ax4rf" path="res://Assets/Knights/Black/Warrior_Idle.png" id="4_651ur"]
 [ext_resource type="Texture2D" uid="uid://c0br18gws0loa" path="res://Assets/Knights/Blue/Warrior_Idle.png" id="5_8n1xo"]
 [ext_resource type="Texture2D" uid="uid://c54apcf2kqk5g" path="res://Assets/Knights/Purple/Warrior_Idle.png" id="6_otixl"]
@@ -269,7 +269,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tw8xo")
-cena_jogo = ExtResource("2_du761")
+cena_jogo = ExtResource("2_tw8xo")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
