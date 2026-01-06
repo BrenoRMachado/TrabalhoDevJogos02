@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bwsvgrvs4gosh"]
+[gd_scene load_steps=13 format=3 uid="uid://bwsvgrvs4gosh"]
 
 [ext_resource type="Script" uid="uid://c8xt81vtwn8jo" path="res://main.gd" id="1_5vw27"]
 [ext_resource type="PackedScene" uid="uid://d1hxkrbtva64j" path="res://cenario.tscn" id="1_lquwl"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://bv6oh554qgyer" path="res://hud.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://vv7c5lua0a4c" path="res://menu_pausa.tscn" id="7_272bh"]
 [ext_resource type="Script" uid="uid://cqqtigfiyirrl" path="res://area_2d.gd" id="9_kek77"]
+[ext_resource type="AudioStream" uid="uid://diyfvv0mwtxs0" path="res://Assets/SunnyLandsMusic/exploration.ogg" id="10_4c57u"]
+[ext_resource type="AudioStream" uid="uid://bstlgybsm7p5g" path="res://Assets/SunnyLandsMusic/megabot.ogg" id="10_efxa6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5vw27"]
 size = Vector2(82, 47)
@@ -82,6 +84,15 @@ shape = SubResource("RectangleShape2D_5vw27")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
+
+[node name="AudioBossFight" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_efxa6")
+volume_db = -10.0
+
+[node name="AudioBase" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_4c57u")
+volume_db = -5.0
+autoplay = true
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

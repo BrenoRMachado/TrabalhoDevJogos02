@@ -7,6 +7,8 @@ extends Node
 @onready var area_2d = $Area2D
 @onready var timer = $Timer
 @onready var horda_final = $HordaFinal
+@onready var audio_base = $AudioBase
+@onready var audio_boss_fight: AudioStreamPlayer = $AudioBossFight
 
 var jogo_acabou = false
 var horda_atual = 0
@@ -70,6 +72,8 @@ func chamar_vitoria():
 
 func aciona_inimigos() -> void:
 	print("Cheguei chegando!")
+	audio_base.stop()
+	audio_boss_fight.play()
 	proxima_horda()
 	boss.ativar_boss()
 	timer.start()
