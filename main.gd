@@ -1,11 +1,24 @@
 extends Node
 
+@export var cena_drone : PackedScene
+@export var cena_aranha : PackedScene
+
 @onready var boss = $InimigoBoss
 @onready var area_2d = $Area2D
 @onready var timer = $Timer
 
 var jogo_acabou = false
-var inimigos_ativos = false
+var horda_atual = 0
+
+var sequencia_hordas = [
+	[],
+	[1],
+	[2],
+	[1, 1],
+	[2, 2],
+	[1, 1, 2],
+	[1, 2, 2]
+]
 
 func _ready():
 	# --- CONFIGURAÇÃO INICIAL ---
@@ -56,10 +69,18 @@ func chamar_vitoria():
 
 func aciona_inimigos() -> void:
 	print("Cheguei chegando!")
-	timer.start(10.0)
-	inimigos_ativos = true
+	proxima_horda()
 	boss.ativar_boss()
+	timer.start(5.0)
 
 func _on_timer_timeout() -> void:
-	pass
+	horda_atual += 1
+	if horda_atual < sequencia_hordas.size():
+		proxima_horda()
+	else:
+		print("Acabaram as hordas")
+		timer.stop()
+
+func proxima_horda() -> void:
+	var criar_inimigos = sequencia_hordas[horda_atual]
 	

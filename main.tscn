@@ -15,6 +15,8 @@ size = Vector2(82, 47)
 
 [node name="Node" type="Node"]
 script = ExtResource("1_5vw27")
+cena_drone = ExtResource("3_272bh")
+cena_aranha = ExtResource("4_5vw27")
 
 [node name="Cenario" parent="." instance=ExtResource("1_lquwl")]
 
