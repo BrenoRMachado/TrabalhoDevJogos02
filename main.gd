@@ -1,6 +1,11 @@
 extends Node
 
+@onready var boss = $InimigoBoss
+@onready var area_2d = $Area2D
+@onready var timer = $Timer
+
 var jogo_acabou = false
+var inimigos_ativos = false
 
 func _ready():
 	# --- CONFIGURAÇÃO INICIAL ---
@@ -16,13 +21,12 @@ func _ready():
 		if hud:
 			hud.player_ref = player
 
-func _process(delta):
+func _process(_delta):
 	# Se o jogo já acabou, pare de verificar
 	if jogo_acabou:
 		return
 
 	var player = $Player
-	var boss = $"Inimigo Boss" 
 
 	# --- LÓGICA DE DERROTA ---
 	if player and player.hp <= 0:
@@ -49,3 +53,13 @@ func chamar_vitoria():
 	# Espera 2 segundos para chamar a vitória
 	await get_tree().create_timer(2.0).timeout 
 	get_tree().change_scene_to_file("res://tela_vitoria.tscn")
+
+func aciona_inimigos() -> void:
+	print("Cheguei chegando!")
+	timer.start(10.0)
+	inimigos_ativos = true
+	boss.ativar_boss()
+
+func _on_timer_timeout() -> void:
+	pass
+	

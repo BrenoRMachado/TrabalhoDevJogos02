@@ -135,7 +135,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r4ymu"]
 size = Vector2(180, 157)
 
-[node name="Inimigo Boss" type="Area2D"]
+[node name="InimigoBoss" type="Area2D"]
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_qx1bd")

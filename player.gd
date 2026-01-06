@@ -75,7 +75,7 @@ func atacar():
 	
 	for alvo in alvos:
 		if alvo.has_method("aplica_dano"):
-			alvo.aplica_dano(1)
+			alvo.aplica_dano()
 	
 	await sprite.animation_finished
 	

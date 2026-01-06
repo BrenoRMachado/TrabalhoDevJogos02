@@ -71,11 +71,15 @@ func _on_body_exited(body: Node2D) -> void:
 	if body is CharacterBody2D:
 		presenca_jogador = false
 
-func aplica_dano(dano : int) -> void:
+func aplica_dano() -> void:
 	audio_dano.play()
-	hp -= dano
+	hp -= 1
 	print ("Tomei dano! Vida atual: ", hp)
 
 func morre() -> void:
 	audio_morte.play()
 	queue_free()
+
+func ativar_boss() -> void:
+	visible = true
+	

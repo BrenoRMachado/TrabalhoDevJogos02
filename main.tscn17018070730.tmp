@@ -21,43 +21,36 @@ script = ExtResource("1_5vw27")
 [node name="InimigoBoss" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_7mycd")]
 visible = false
 position = Vector2(4219, 558)
-"distância" = 200.0
 player = NodePath("../Player")
 
-[node name="Drones" type="Node" parent="."]
-
-[node name="Drone Inimigo5" parent="Drones" instance=ExtResource("3_272bh")]
+[node name="Drone Inimigo5" parent="." instance=ExtResource("3_272bh")]
 position = Vector2(2858, 445)
 
-[node name="Drone Inimigo4" parent="Drones" instance=ExtResource("3_272bh")]
+[node name="Drone Inimigo4" parent="." instance=ExtResource("3_272bh")]
 position = Vector2(2127, 362)
 
-[node name="Drone Inimigo3" parent="Drones" instance=ExtResource("3_272bh")]
+[node name="Drone Inimigo3" parent="." instance=ExtResource("3_272bh")]
 position = Vector2(1528, 397)
 
-[node name="Drone Inimigo2" parent="Drones" instance=ExtResource("3_272bh")]
+[node name="Drone Inimigo2" parent="." instance=ExtResource("3_272bh")]
 position = Vector2(2439, 483)
 
-[node name="Drone Inimigo" parent="Drones" instance=ExtResource("3_272bh")]
+[node name="Drone Inimigo" parent="." instance=ExtResource("3_272bh")]
 position = Vector2(927, 428)
 
-[node name="Aranhas" type="Node" parent="."]
-
-[node name="Aranha Inimigo4" parent="Aranhas" instance=ExtResource("4_5vw27")]
+[node name="Aranha Inimigo4" parent="." instance=ExtResource("4_5vw27")]
 position = Vector2(2102, 556)
-"distância" = 100.0
 
-[node name="Aranha Inimigo5" parent="Aranhas" instance=ExtResource("4_5vw27")]
+[node name="Aranha Inimigo5" parent="." instance=ExtResource("4_5vw27")]
 position = Vector2(3368, 635)
 
-[node name="Aranha Inimigo3" parent="Aranhas" instance=ExtResource("4_5vw27")]
+[node name="Aranha Inimigo3" parent="." instance=ExtResource("4_5vw27")]
 position = Vector2(1450, 572)
-"distância" = 250.0
 
-[node name="Aranha Inimigo2" parent="Aranhas" instance=ExtResource("4_5vw27")]
+[node name="Aranha Inimigo2" parent="." instance=ExtResource("4_5vw27")]
 position = Vector2(971, 572)
 
-[node name="Aranha Inimigo" parent="Aranhas" instance=ExtResource("4_5vw27")]
+[node name="Aranha Inimigo" parent="." instance=ExtResource("4_5vw27")]
 position = Vector2(596, 573)
 
 [node name="Player" parent="." instance=ExtResource("5_kek77")]
