@@ -10,6 +10,7 @@ var esta_atacando = false
 var combo_ataque = 1
 var hp = 5
 var levando_dano = false
+var morto = false
 
 @onready var sprite = $AnimatedSprite2D
 @onready var area_ataque = $AreaAtaque
@@ -19,6 +20,9 @@ var levando_dano = false
 @onready var hurt_audio = $HurtAudio
 
 func _physics_process(delta: float) -> void:
+	if morto:
+		return
+
 	if not is_on_floor():
 		velocity.y += gravidade * delta
 
@@ -86,18 +90,25 @@ func atacar():
 	pode_atacar = true
 
 func tomar_dano(dano : int) -> void:
-	if levando_dano: return 
+	if morto or levando_dano: return 
 	
 	hp -= dano
+	print("Vida do personagem: ", hp)
+
+	if hp <= 0:
+		morrer()
+	else:
+		processar_dano_comum()
+
+func processar_dano_comum():
 	levando_dano = true
 	hurt_audio.play()
-	
 	sprite.play(cor_atual + "_damage")
 	
-	velocity.x = -200 if !sprite.flip_h else 200
-	move_and_slide()
-
 	await sprite.animation_finished
-	
 	levando_dano = false
-	print("Vida do personagem: ", hp)
+
+func morrer():
+	morto = true
+	velocity = Vector2.ZERO
+	sprite.play("death")
