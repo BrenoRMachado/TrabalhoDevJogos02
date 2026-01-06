@@ -74,7 +74,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkjai"]
-size = Vector2(38, 41)
+size = Vector2(34, 38)
 
 [node name="Aranha Inimigo" type="Area2D"]
 collision_layer = 4
@@ -89,7 +89,7 @@ scale = Vector2(2.75, 2.7500002)
 sprite_frames = SubResource("SpriteFrames_3ulvt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1.5)
+position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_rkjai")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

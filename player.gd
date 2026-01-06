@@ -1,16 +1,15 @@
 extends CharacterBody2D
 
-# --- CONFIGURAÇÕES ---
 @export var velocidade = 250.0
 @export var forca_pulo = -450.0
 @export var gravidade = 1000.0
 @export_enum("black", "purple", "red", "blue") var cor_atual: String = "blue"
 
-# --- ESTADOS ---
 var pode_atacar = true
 var esta_atacando = false
 var combo_ataque = 1
 var hp = 5
+var levando_dano = false
 
 @onready var sprite = $AnimatedSprite2D
 @onready var area_ataque = $AreaAtaque
@@ -47,7 +46,7 @@ func _physics_process(delta: float) -> void:
 	atualizar_visual(direcao)
 
 func atualizar_visual(direcao: float):
-	if esta_atacando:
+	if esta_atacando or levando_dano:
 		return
 
 	var anim_desejada : String
@@ -83,11 +82,22 @@ func atacar():
 	esta_atacando = false
 	combo_ataque = 2 if combo_ataque == 1 else 1
 	
-	# Cooldown rápido para o próximo cliqued
-	await get_tree().create_timer(0.6).timeout
+	await get_tree().create_timer(0.3).timeout
 	pode_atacar = true
 
 func tomar_dano(dano : int) -> void:
+	if levando_dano: return 
+	
 	hp -= dano
+	levando_dano = true
 	hurt_audio.play()
+	
+	sprite.play(cor_atual + "_damage")
+	
+	velocity.x = -200 if !sprite.flip_h else 200
+	move_and_slide()
+
+	await sprite.animation_finished
+	
+	levando_dano = false
 	print("Vida do personagem: ", hp)

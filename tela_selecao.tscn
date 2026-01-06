@@ -172,7 +172,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Black",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -201,7 +201,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Blue",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -230,7 +230,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Purple",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -259,7 +259,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Red",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [node name="TelaSelecao" type="Control"]
@@ -331,9 +331,8 @@ layout_mode = 2
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HBoxContainer/VBoxContainer/Visual"]
 position = Vector2(50, 50)
 sprite_frames = SubResource("SpriteFrames_o71us")
-animation = &"Red"
+animation = &"Black"
 autoplay = "Red"
-frame_progress = 0.88505673
 
 [node name="Button" type="Button" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
