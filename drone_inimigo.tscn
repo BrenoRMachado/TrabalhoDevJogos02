@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bdo6q7dgtbdrw"]
+[gd_scene load_steps=8 format=3 uid="uid://bdo6q7dgtbdrw"]
 
 [ext_resource type="Script" uid="uid://c2boiayjo4fq5" path="res://drone_inimigo.gd" id="1_ophob"]
 [ext_resource type="Texture2D" uid="uid://402qtqqs00n6" path="res://Assets/Enemys/Robots/1-FlyRobot.png" id="2_ophob"]
@@ -10,19 +10,7 @@ region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xqbmi"]
 atlas = ExtResource("2_ophob")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m2xvf"]
-atlas = ExtResource("2_ophob")
-region = Rect2(224, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sva2o"]
-atlas = ExtResource("2_ophob")
-region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_akwpb"]
-atlas = ExtResource("2_ophob")
-region = Rect2(256, 0, 32, 32)
+region = Rect2(288, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_akwpb"]
 animations = [{
@@ -32,25 +20,10 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xqbmi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_m2xvf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sva2o")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_m2xvf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xqbmi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_akwpb")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 4.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ophob"]
@@ -60,13 +33,14 @@ size = Vector2(28, 37)
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_ophob")
-velocidade = 50.0
+amplitude = 20.0
+velocidade = 5.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(2.4375, 2.4374998)
 sprite_frames = SubResource("SpriteFrames_akwpb")
-frame_progress = 0.5203662
+frame_progress = 0.17813048
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -13.5)
