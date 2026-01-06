@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bc11dv2wxd2k3" path="res://cenario.gd" id="1_r0gk3"]
 [ext_resource type="Texture2D" uid="uid://cgn2rch2qketa" path="res://Assets/Background/background_0.png" id="2_bj8tx"]
 [ext_resource type="Texture2D" uid="uid://bfyhd3yhfb5cs" path="res://Assets/Background/background_1.png" id="3_r0gk3"]
-[ext_resource type="PackedScene" uid="uid://157b1gsts6g5" path="res://player.tscn" id="4_bj8tx"]
+[ext_resource type="PackedScene" uid="uid://bxmkhd0iylk67" path="res://player.tscn" id="4_bj8tx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fqljg"]
 texture = ExtResource("1_g3h26")
@@ -457,6 +457,7 @@ position = Vector2(167, 451)
 
 [node name="Queda_mapa" type="Area2D" parent="."]
 position = Vector2(-1, -3)
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Queda_mapa"]
 position = Vector2(2069, 1068)
@@ -464,6 +465,7 @@ shape = SubResource("RectangleShape2D_bj8tx")
 
 [node name="Buraco_1" type="Area2D" parent="."]
 position = Vector2(1374, 549)
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Buraco_1"]
 position = Vector2(192, 86)
