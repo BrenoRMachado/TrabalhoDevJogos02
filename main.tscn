@@ -26,6 +26,8 @@ position = Vector2(4219, 558)
 "distância" = 200.0
 player = NodePath("../Player")
 
+[node name="HordaFinal" type="Node" parent="."]
+
 [node name="Drones" type="Node" parent="."]
 
 [node name="Drone Inimigo5" parent="Drones" instance=ExtResource("3_272bh")]
@@ -63,7 +65,7 @@ position = Vector2(971, 572)
 position = Vector2(596, 573)
 
 [node name="Player" parent="." instance=ExtResource("5_kek77")]
-position = Vector2(132, 570)
+position = Vector2(3574, 635)
 
 [node name="HUD" parent="Player" instance=ExtResource("6_7mycd")]
 
@@ -79,7 +81,8 @@ script = ExtResource("9_kek77")
 shape = SubResource("RectangleShape2D_5vw27")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 5.0
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

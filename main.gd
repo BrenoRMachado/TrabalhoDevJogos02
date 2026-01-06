@@ -6,6 +6,7 @@ extends Node
 @onready var boss = $InimigoBoss
 @onready var area_2d = $Area2D
 @onready var timer = $Timer
+@onready var horda_final = $HordaFinal
 
 var jogo_acabou = false
 var horda_atual = 0
@@ -71,7 +72,7 @@ func aciona_inimigos() -> void:
 	print("Cheguei chegando!")
 	proxima_horda()
 	boss.ativar_boss()
-	timer.start(5.0)
+	timer.start()
 
 func _on_timer_timeout() -> void:
 	horda_atual += 1
@@ -83,4 +84,15 @@ func _on_timer_timeout() -> void:
 
 func proxima_horda() -> void:
 	var criar_inimigos = sequencia_hordas[horda_atual]
+	print("Spawnando horda: ", horda_atual)
+	
+	for tipo in criar_inimigos:
+		var novo_inimigo
+		if tipo == 1:
+			novo_inimigo = cena_drone.instantiate()
+			novo_inimigo.position = Vector2(randf_range(3800, 4300), randf_range(535, 635))
+		elif tipo == 2:
+			novo_inimigo = cena_aranha.instantiate()
+			novo_inimigo.position = Vector2(randf_range(3800, 4000), 635)
+		horda_final.add_child(novo_inimigo)
 	
