@@ -930,6 +930,8 @@ shape = SubResource("RectangleShape2D_onrkg")
 disabled = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -160)
+zoom = Vector2(1.8, 1.8)
 
 [node name="JumpAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("18_q13i1")
