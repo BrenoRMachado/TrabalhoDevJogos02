@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1hxkrbtva64j"]
+[gd_scene load_steps=11 format=3 uid="uid://d1hxkrbtva64j"]
 
+[ext_resource type="Script" uid="uid://bc11dv2wxd2k3" path="res://cenario.gd" id="1_bj8tx"]
 [ext_resource type="Texture2D" uid="uid://bmxh2s6f7s3gk" path="res://Assets/Background/Assets.png" id="1_g3h26"]
 [ext_resource type="Texture2D" uid="uid://cgn2rch2qketa" path="res://Assets/Background/background_0.png" id="2_bj8tx"]
 [ext_resource type="Texture2D" uid="uid://dqjy8l8hps0qt" path="res://Assets/Background/background_2.png" id="4_0nnsg"]
+[ext_resource type="Script" uid="uid://dvnanmywbpx8q" path="res://checkpoint.gd" id="5_r0gk3"]
+[ext_resource type="Script" uid="uid://fu8vypccoi6p" path="res://limite_inferior.gd" id="6_0nnsg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fqljg"]
 texture = ExtResource("1_g3h26")
@@ -412,7 +415,14 @@ texture = ExtResource("1_g3h26")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_fqljg")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xwuul"]
+size = Vector2(512, 1028)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bj8tx"]
+size = Vector2(5754, 744)
+
 [node name="Cenario" type="Node2D"]
+script = ExtResource("1_bj8tx")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_xwuul")
@@ -441,3 +451,34 @@ motion_mirroring = Vector2(300, 540)
 position = Vector2(402, 268)
 scale = Vector2(3.328125, 4.083)
 texture = ExtResource("4_0nnsg")
+
+[node name="Checkpoint" type="Area2D" parent="."]
+position = Vector2(1593, 507)
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("5_r0gk3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint"]
+shape = SubResource("RectangleShape2D_xwuul")
+
+[node name="LimiteInferior" type="Area2D" parent="."]
+position = Vector2(1593, 1135)
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("6_0nnsg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LimiteInferior"]
+position = Vector2(461, 0)
+shape = SubResource("RectangleShape2D_bj8tx")
+
+[node name="Spawn_01" type="Marker2D" parent="."]
+position = Vector2(1241, 551)
+
+[node name="Spawn_02" type="Marker2D" parent="."]
+position = Vector2(1950, 546)
+
+[node name="Spawn_Inicial" type="Marker2D" parent="."]
+position = Vector2(166, 552)
+
+[connection signal="body_exited" from="Checkpoint" to="Checkpoint" method="_on_body_exited"]
+[connection signal="body_entered" from="LimiteInferior" to="LimiteInferior" method="_on_body_entered"]

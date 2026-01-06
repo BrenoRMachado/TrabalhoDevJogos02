@@ -1054,13 +1054,11 @@ animation = &"death"
 frame_progress = 0.5518454
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(3.5762787e-07, 1.0000004)
 scale = Vector2(1.0350299, 1.2033107)
 shape = SubResource("RectangleShape2D_op7ga")
 
 [node name="AreaAtaque" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 4
 
