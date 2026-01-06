@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://psd8qjwd7lt6"]
+[gd_scene load_steps=5 format=3 uid="uid://psd8qjwd7lt6"]
 
 [ext_resource type="Script" uid="uid://ce4yjak7co5qe" path="res://tela_vitoria.gd" id="1_nsdld"]
 [ext_resource type="Texture2D" uid="uid://bmxh2s6f7s3gk" path="res://Assets/Background/Assets.png" id="1_vetyl"]
+[ext_resource type="AudioStream" uid="uid://bafmamsqi01s6" path="res://Assets/Sounds/Victory.mp3" id="3_sw3hn"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nsdld"]
 texture = ExtResource("1_vetyl")
@@ -72,3 +73,8 @@ text = "JOGAR	 NOVAMENTE"
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "VOLTAR AO MENU"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_sw3hn")
+volume_db = -10.0
+autoplay = true

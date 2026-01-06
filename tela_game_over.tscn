@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dmcoddvwxo4vi"]
+[gd_scene load_steps=7 format=3 uid="uid://dmcoddvwxo4vi"]
 
 [ext_resource type="Script" uid="uid://b3qab0dcpvw2p" path="res://tela_game_over.gd" id="1_o4t8j"]
 [ext_resource type="Texture2D" uid="uid://bmxh2s6f7s3gk" path="res://Assets/Background/Assets.png" id="2_lbivt"]
 [ext_resource type="AudioStream" uid="uid://6vo3u4s30ccr" path="res://Assets/Sounds/GameOver.mp3" id="3_k17kg"]
 [ext_resource type="AudioStream" uid="uid://b1ishx6jlywoh" path="res://Assets/Sounds/touch.wav" id="4_jos3i"]
+[ext_resource type="AudioStream" uid="uid://c8contxl218vs" path="res://Assets/Sounds/GameOverMusic.wav" id="5_k6eyx"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k17kg"]
 texture = ExtResource("2_lbivt")
@@ -82,3 +83,8 @@ volume_db = 4.0
 [node name="AudioTouch" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_jos3i")
 volume_db = 24.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_k6eyx")
+volume_db = -10.0
+autoplay = true
