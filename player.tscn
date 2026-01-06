@@ -1,4 +1,4 @@
-[gd_scene load_steps=148 format=3 uid="uid://bxmkhd0iylk67"]
+[gd_scene load_steps=149 format=3 uid="uid://bxmkhd0iylk67"]
 
 [ext_resource type="Script" uid="uid://3ny2rmmn3yie" path="res://player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://hjgmisobq7m1" path="res://Assets/Knights/Black/Warrior_Attack1.png" id="2_sweqy"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://b37rlvqib5mrj" path="res://Assets/Knights/Red/red_damage.png" id="19_dx0e4"]
 [ext_resource type="AudioStream" uid="uid://6hc30owrglor" path="res://Assets/Sounds/sword.mp3" id="19_pylmc"]
 [ext_resource type="AudioStream" uid="uid://c208r4udjp4kv" path="res://Assets/Sounds/hurt.mp3" id="20_pbfsw"]
+[ext_resource type="AudioStream" uid="uid://cy5cwt31bofsu" path="res://Assets/Sounds/losing-horn-313723.mp3" id="27_qtqh7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b26j0"]
 atlas = ExtResource("2_sweqy")
@@ -1050,7 +1051,7 @@ cor_atual = "red"
 scale = Vector2(0.5625, 0.5625)
 sprite_frames = SubResource("SpriteFrames_634y6")
 animation = &"death"
-frame_progress = 0.20320703
+frame_progress = 0.5518454
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -1069,7 +1070,7 @@ shape = SubResource("RectangleShape2D_onrkg")
 disabled = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
-offset = Vector2(0, -160)
+offset = Vector2(0, -80)
 zoom = Vector2(1.8, 1.8)
 
 [node name="JumpAudio" type="AudioStreamPlayer2D" parent="."]
@@ -1081,5 +1082,8 @@ stream = ExtResource("19_pylmc")
 [node name="HurtAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("20_pbfsw")
 volume_db = 3.0
+
+[node name="DeathAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("27_qtqh7")
 
 [connection signal="area_entered" from="AreaAtaque" to="." method="_on_area_entered"]

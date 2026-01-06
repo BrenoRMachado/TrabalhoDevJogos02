@@ -18,6 +18,8 @@ var morto = false
 @onready var jump_audio = $JumpAudio
 @onready var sword_audio = $SwordAudio
 @onready var hurt_audio = $HurtAudio
+@onready var death_audio: AudioStreamPlayer2D = $DeathAudio
+
 
 func _physics_process(delta: float) -> void:
 	if morto:
@@ -111,4 +113,5 @@ func processar_dano_comum():
 func morrer():
 	morto = true
 	velocity = Vector2.ZERO
+	death_audio.play()
 	sprite.play("death")

@@ -58,7 +58,7 @@ func _process(_delta):
 func chamar_game_over():
 	jogo_acabou = true
 	print("GAME OVER!")
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(4.0).timeout
 	get_tree().change_scene_to_file("res://tela_game_over.tscn")
 
 func chamar_vitoria():
