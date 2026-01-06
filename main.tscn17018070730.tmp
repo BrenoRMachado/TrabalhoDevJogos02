@@ -15,57 +15,46 @@ size = Vector2(82, 47)
 
 [node name="Node" type="Node"]
 script = ExtResource("1_5vw27")
-cena_drone = ExtResource("3_272bh")
-cena_aranha = ExtResource("4_5vw27")
 
 [node name="Cenario" parent="." instance=ExtResource("1_lquwl")]
 
 [node name="InimigoBoss" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_7mycd")]
 visible = false
 position = Vector2(4219, 558)
-"distância" = 200.0
 player = NodePath("../Player")
 
-[node name="HordaFinal" type="Node" parent="."]
-
-[node name="Drones" type="Node" parent="."]
-
-[node name="Drone Inimigo5" parent="Drones" instance=ExtResource("3_272bh")]
+[node name="Drone Inimigo5" parent="." instance=ExtResource("3_272bh")]
 position = Vector2(2858, 445)
 
-[node name="Drone Inimigo4" parent="Drones" instance=ExtResource("3_272bh")]
+[node name="Drone Inimigo4" parent="." instance=ExtResource("3_272bh")]
 position = Vector2(2127, 362)
 
-[node name="Drone Inimigo3" parent="Drones" instance=ExtResource("3_272bh")]
+[node name="Drone Inimigo3" parent="." instance=ExtResource("3_272bh")]
 position = Vector2(1528, 397)
 
-[node name="Drone Inimigo2" parent="Drones" instance=ExtResource("3_272bh")]
+[node name="Drone Inimigo2" parent="." instance=ExtResource("3_272bh")]
 position = Vector2(2439, 483)
 
-[node name="Drone Inimigo" parent="Drones" instance=ExtResource("3_272bh")]
+[node name="Drone Inimigo" parent="." instance=ExtResource("3_272bh")]
 position = Vector2(927, 428)
 
-[node name="Aranhas" type="Node" parent="."]
-
-[node name="Aranha Inimigo4" parent="Aranhas" instance=ExtResource("4_5vw27")]
+[node name="Aranha Inimigo4" parent="." instance=ExtResource("4_5vw27")]
 position = Vector2(2102, 556)
-"distância" = 100.0
 
-[node name="Aranha Inimigo5" parent="Aranhas" instance=ExtResource("4_5vw27")]
+[node name="Aranha Inimigo5" parent="." instance=ExtResource("4_5vw27")]
 position = Vector2(3368, 635)
 
-[node name="Aranha Inimigo3" parent="Aranhas" instance=ExtResource("4_5vw27")]
+[node name="Aranha Inimigo3" parent="." instance=ExtResource("4_5vw27")]
 position = Vector2(1450, 572)
-"distância" = 250.0
 
-[node name="Aranha Inimigo2" parent="Aranhas" instance=ExtResource("4_5vw27")]
+[node name="Aranha Inimigo2" parent="." instance=ExtResource("4_5vw27")]
 position = Vector2(971, 572)
 
-[node name="Aranha Inimigo" parent="Aranhas" instance=ExtResource("4_5vw27")]
+[node name="Aranha Inimigo" parent="." instance=ExtResource("4_5vw27")]
 position = Vector2(596, 573)
 
 [node name="Player" parent="." instance=ExtResource("5_kek77")]
-position = Vector2(3574, 635)
+position = Vector2(132, 570)
 
 [node name="HUD" parent="Player" instance=ExtResource("6_7mycd")]
 
@@ -81,8 +70,7 @@ script = ExtResource("9_kek77")
 shape = SubResource("RectangleShape2D_5vw27")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 10.0
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

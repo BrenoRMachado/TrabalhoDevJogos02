@@ -34,7 +34,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
 		body.tomar_dano(1)
 
-func aplica_dano(dano : int) -> void:
+func aplica_dano() -> void:
 	audio_dano.play()
 	await audio_dano.finished
 	queue_free()

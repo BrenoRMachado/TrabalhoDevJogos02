@@ -21,7 +21,7 @@ func _ready():
 	else:
 		print("Erro ao carregar imagem")
 
-func _process(delta):
+func _process(_delta):
 	if player_ref:
 		# Lógica de esconder continua igual
 		for i in range(lista_paineis.size()):
