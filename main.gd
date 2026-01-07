@@ -24,33 +24,26 @@ var sequencia_hordas = [
 ]
 
 func _ready():
-	# --- CONFIGURAÇÃO INICIAL ---
 	var player = $Player
 	var hud = $Player/HUD
 	
 	if player:
-		# Pinta o personagem
 		player.cor_atual = Global.cor_escolhida.to_lower()
 		player.atualizar_visual(0)
 		
-		# Liga o HUD
 		if hud:
 			hud.player_ref = player
 
 func _process(_delta):
-	# Se o jogo já acabou, pare de verificar
 	if jogo_acabou:
 		return
 
 	var player = $Player
 
-	# --- LÓGICA DE DERROTA ---
 	if player and player.hp <= 0:
 		chamar_game_over()
 	
-	# 1. Verifica se o Boss ainda existe na cena
 	if boss:
-		# 2. Vê a vida do boss
 		if boss.hp <= 0:
 			print("Vida do Boss zerou!")
 			chamar_vitoria()

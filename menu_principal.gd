@@ -9,16 +9,9 @@ extends Control
 
 func _ready():
 	
-	# Quando apertar Jogar
 	$VBoxContainer/BotaoJogar.pressed.connect(entrar_no_jogo)
-	
-	# Quando apertar Sair
 	$VBoxContainer/BotaoSair.pressed.connect(sair_do_jogo)
-	
-	# Quando aperta no como jogar
 	$VBoxContainer/BotaoComoJogar.pressed.connect(abrir_como_jogar)
-	
-	# Quando aperta no créditos
 	$VBoxContainer/BotaoCreditos.pressed.connect(abrir_creditos)
 
 func entrar_no_jogo():
@@ -46,7 +39,6 @@ func abrir_creditos():
 		print("ERRO: Nenhuma cena de créditos foi configurada no Inspetor.")
 
 func sair_do_jogo():
-	# Fecha o jogo
 	audio_touch.play()
 	await audio_touch.finished
 	get_tree().quit()

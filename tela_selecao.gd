@@ -6,16 +6,10 @@ extends Control
 
 
 func _ready():
-	# Botão Vermelho
+	
 	$HBoxContainer/VBoxContainer/Button.pressed.connect(_on_vermelho_pressed)
-	
-	# Botão Azul
 	$HBoxContainer/VBoxContainer2/Button.pressed.connect(_on_azul_pressed)
-	
-	# Botão Preto
 	$HBoxContainer/VBoxContainer3/Button.pressed.connect(_on_preto_pressed)
-	
-	# Botão Roxo
 	$HBoxContainer/VBoxContainer4/Button.pressed.connect(_on_roxo_pressed)
 	
 

@@ -1,12 +1,10 @@
 extends Area2D
 
-# Carrega a cena de vitória
 var cena_vitoria = load("res://tela_vitoria.tscn")
 
-# (A função _ready foi apagada. Vamos conectar pelo editor)
 
 func _on_body_entered(body):
-	print("ALGO ENTROU NA ÁREA: ", body.name) # Esse print vai nos salvar!
+	print("ALGO ENTROU NA ÁREA: ", body.name)
 	
 	if body is CharacterBody2D:
 		print("É o Player! Ganhamos!")

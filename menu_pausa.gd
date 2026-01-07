@@ -21,16 +21,15 @@ func _unhandled_input(event):
 
 func pausar():
 	visible = true
-	get_tree().paused = true # CONGELA O JOGO
+	get_tree().paused = true
 
 func despausar():
 	visible = false
 	audio_touch.play()
 	await audio_touch.finished
-	get_tree().paused = false # DESCONGELA O JOGO
+	get_tree().paused = false
 
 func voltar_menu():
-	# Descongela antes de trocar a cena
 	get_tree().paused = false 
 	audio_touch.play()
 	await audio_touch.finished
