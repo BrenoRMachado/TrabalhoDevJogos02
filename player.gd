@@ -44,6 +44,11 @@ func _physics_process(delta: float) -> void:
 		if is_on_floor():
 			velocity.x = move_toward(velocity.x, 0, velocidade)
 
+	if sprite.flip_h:
+		area_ataque.position.x = -24
+	else:
+		area_ataque.position.x = 24
+
 	if Input.is_action_just_pressed("atacar") and pode_atacar:
 		atacar()
 		sword_audio.play()
