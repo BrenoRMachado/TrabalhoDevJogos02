@@ -59,7 +59,6 @@ func chamar_game_over():
 func chamar_vitoria():
 	jogo_acabou = true
 	print("VITÓRIA! O CHEFE FOI DERROTADO!")
-	# Espera 2 segundos para chamar a vitória
 	await get_tree().create_timer(2.0).timeout 
 	get_tree().change_scene_to_file("res://tela_vitoria.tscn")
 
